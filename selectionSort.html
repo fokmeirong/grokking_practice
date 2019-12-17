@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    Selection Sort
+
+</body>
+<script>
+
+    function find_smallest_index(arr) {
+        let smallest = arr[0];
+        let smallest_index = 0;
+
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i] < smallest) {
+                smallest = arr[i];
+                smallest_index = i;
+            }
+        }
+
+        return smallest_index;
+    }
+
+    function select_sort(arr) {
+        let new_array = [];
+        let temp_arr = arr.slice(); // copy the array
+        arr.forEach(() => {
+            const smallest_index = find_smallest_index(temp_arr);
+            new_array.push(temp_arr[smallest_index]);
+            temp_arr.splice(smallest_index, 1);
+        });
+
+        return new_array;
+    }
+
+    const arr = [5,3,6,2,10]
+    console.log(select_sort(arr));
+    // select_sort(arr);
+
+</script>
+
+</html>
